@@ -72,7 +72,7 @@ h2 {
 }
 
 /* Info Box (Hidden for first) */
-.info-box {
+#symbol-info {
     margin-top: 20px;
     padding: 20px;
     background: #251e1e;
@@ -82,24 +82,23 @@ h2 {
     min-width: 300px;
     max-width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: none;
 }
 
 /* Info Box Heading */
-.info-box h2 {
+#symbol-title {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #f39c12;
 }
 
 /* Info Box Text */
-.info-box p {
+#symbol-description {
     font-size: 1.2em;
     color: #cccccc;
 }
 
 /* Audio Player */
-.info-box audio {
+#symbol-audio {
     margin-top: 10px;
     width: 100%;
 }

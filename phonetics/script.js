@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     const symbolBoxes = document.querySelectorAll(".symbol-box");
 
-    // Select elements for displaying information
+    //  elements for displaying information
     const symbolTitle = document.getElementById("symbol-title");
     const symbolDescription = document.getElementById("symbol-description");
     const audioElement = document.getElementById("symbol-audio");
     const audioSource = document.getElementById("audio-source");
 
-    // Descriptions with examples for each phoneme
+    //  examples for each phoneme
     const descriptions = {
         "/p/": "Voiceless bilabial plosive (both lips). Example: 'p' in 'pat'.",
         "/b/": "Voiced bilabial plosive (both lips). Example: 'b' in 'bat'.",
         "/t/": "Voiceless alveolar plosive (tongue on alveolar ridge). Example: 't' in 'top'.",
         "/d/": "Voiced alveolar plosive. Example: 'd' in 'dog'.",
-        "/ʧ/": "Voiceless postalveolar affricate. Example: 'ch' in 'cheese'.",
+        "/ʧ/": "Voiceless postalveolar affricate. Example: 'ch' in 'cheese'.",  // error
         "/ʤ/": "Voiced postalveolar affricate. Example: 'j' in 'judge'.",
         "/k/": "Voiceless velar plosive (back of tongue). Example: 'k' in 'kite'.",
         "/g/": "Voiced velar plosive. Example: 'g' in 'go'.",
         "/f/": "Voiceless labiodental fricative (lower lip touches teeth). Example: 'f' in 'fish'.",
         "/v/": "Voiced labiodental fricative. Example: 'v' in 'van'.",
         "/θ/": "Voiceless dental fricative. Example: 'th' in 'think'.",
-        "/ð/": "Voiced dental fricative. Example: 'th' in 'this'.",
+        "/ð/": "Voiced dental fricative. Example: 'th' in 'there'.",
         "/s/": "Voiceless alveolar fricative. Example: 's' in 'sun'.",
         "/z/": "Voiced alveolar fricative. Example: 'z' in 'zebra'.",
         "/ʃ/": "Voiceless postalveolar fricative. Example: 'sh' in 'shoe'.",
@@ -55,55 +55,55 @@ document.addEventListener("DOMContentLoaded", () => {
         "/əʊ/": "Diphthong, mid central to close back. Example: 'o' in 'go'."
     };
 
-    // Audio file paths
+    // Audio files
     const audioFiles = {
-        "/p/": "sounds/p.mp3",
+        "/p/": "sounds/p.wav",
         "/b/": "sounds/b.mp3",
-        "/t/": "sounds/t.mp3",
-        "/d/": "sounds/d.mp3",
-        "/ʧ/": "sounds/tʃ.mp3",
-        "/ʤ/": "sounds/dʒ.mp3",
-        "/k/": "sounds/k.mp3",
-        "/g/": "sounds/g.mp3",
-        "/f/": "sounds/f.mp3",
+        "/t/": "sounds/t.wav",
+        "/d/": "sounds/d.wav",
+        "/ʧ/": "sounds/ʧ.wav",  // w
+        "/ʤ/": "sounds/ʤ.wav",
+        "/k/": "sounds/k.wav",
+        "/g/": "sounds/g.wav",
+        "/f/": "sounds/f.wav",
         "/v/": "sounds/v.mp3",
-        "/θ/": "sounds/θ.mp3",
+        "/θ/": "sounds/θ.wav",
         "/ð/": "sounds/ð.mp3",
-        "/s/": "sounds/s.mp3",
-        "/z/": "sounds/z.mp3",
-        "/ʃ/": "sounds/ʃ.mp3",
-        "/ʒ/": "sounds/ʒ.mp3",
-        "/m/": "sounds/m.mp3",
-        "/n/": "sounds/n.mp3",
-        "/ŋ/": "sounds/ŋ.mp3",
-        "/h/": "sounds/h.mp3",
+        "/s/": "sounds/s.wav",
+        "/z/": "sounds/z.wav",
+        "/ʃ/": "sounds/ʃ.wav",
+        "/ʒ/": "sounds/ʒ.wav",
+        "/m/": "sounds/m.wav",
+        "/n/": "sounds/n.wav",
+        "/ŋ/": "sounds/ŋ.wav",
+        "/h/": "sounds/h.wav",
         "/l/": "sounds/l.mp3",
-        "/r/": "sounds/r.mp3",
-        "/w/": "sounds/w.mp3",
-        "/j/": "sounds/j.mp3",
-        "/i:/": "sounds/i-long.mp3",
-        "/ɪ/": "sounds/I.mp3",
-        "/ʊ/": "sounds/u-short.mp3",
-        "/u:/": "sounds/u-long.mp3",
+        "/r/": "sounds/r.wav",
+        "/w/": "sounds/w.wav",
+        "/j/": "sounds/j.wav",
+        "/i:/": "sounds/i monothongs.mp3",
+        "/ɪ/": "sounds/ɪ.wav",
+        "/ʊ/": "sounds/ʊ.wav",
+        "/u:/": "sounds/long u monothongs.wav",
         "/e/": "sounds/e.mp3",
-        "/ə/": "sounds/schwa.mp3",
-        "/ɜ:/": "sounds/er.mp3",
-        "/ɔ:/": "sounds/o-long.mp3",
-        "/æ/": "sounds/ae.mp3",
-        "/ʌ/": "sounds/u.mp3",
-        "/ɑ:/": "sounds/a-long.mp3",
-        "/ɒ/": "sounds/o-short.mp3",
-        "/ɪə/": "sounds/ie.mp3",
-        "/eɪ/": "sounds/ei.mp3",
-        "/ʊə/": "sounds/ue.mp3",
-        "/ɔɪ/": "sounds/oi.mp3",
-        "/eə/": "sounds/ea.mp3",
-        "/aɪ/": "sounds/ai.mp3",
-        "/aʊ/": "sounds/au.mp3",
-        "/əʊ/": "sounds/ou.mp3"
+        "/ə/": "sounds/ə.mp3",
+        "/ɜ:/": "sounds/ɜ monothonhgs.mp3",
+        "/ɔ:/": "sounds/ɔ monothongs.mp3",
+        "/æ/": "sounds/æ.mp3",
+        "/ʌ/": "sounds/ʌ.mp3",
+        "/ɑ:/": "sounds/ɑ monothonhgs.mp3",
+        "/ɒ/": "sounds/ɒ.mp3",
+        "/ɪə/": "sounds/ɪə.mp3",
+        "/eɪ/": "sounds/eɪ.mp3",
+        "/ʊə/": "sounds/ʊə.mp3",
+        "/ɔɪ/": "sounds/ɔɪ.mp3",
+        "/eə/": "sounds/eə.mp3",
+        "/aɪ/": "sounds/aɪ.mp3",
+        "/aʊ/": "sounds/aʊ.mp3",
+        "/əʊ/": "sounds/əʊ.mp3",
     };
 
-    // Add event listeners
+    // event listeners to symbol boxes
     symbolBoxes.forEach((box) => {
         box.addEventListener("click", () => {
             const symbol = box.innerText;
